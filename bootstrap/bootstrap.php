@@ -18,6 +18,11 @@ class erLhcoreClassExtensionGooglebusinessmessage
             'verifyCall'
         ));
 
+        $dispatcher->listen('chat.webhook_incoming_chat_started', array(
+            $this,
+            'webhookChatStarted'
+        ));
+
         $dispatcher->listen('chat.rest_api_before_request', array(
             $this,
             'addVariables'
@@ -43,6 +48,18 @@ class erLhcoreClassExtensionGooglebusinessmessage
             'instanceDestroyed'
         ));
 
+    }
+
+    public function webhookChatStarted($params)
+    {
+        if ($params['webhook']->scope == 'googlebusinessmessage') {
+            $agentId = explode('agents/',$params['data']['agent'])[1];
+            $agent = \LiveHelperChatExtension\googlebusinessmessage\providers\erLhcoreClassModelGoogleBusinessAgent::findOne(['filter' => ['agent_id' => $agentId]]);
+            if (is_object($agent)) {
+                $params['chat']->dep_id = $agent->dep_id;
+                $params['chat']->updateThis(['update' => ['dep_id']]);
+            }
+        }
     }
 
     public function makeRequest($params)
