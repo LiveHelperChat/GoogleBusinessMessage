@@ -84,8 +84,20 @@ class erLhcoreClassExtensionGooglebusinessmessage
             // returns a Guzzle HTTP Client
             $httpClient = $client->authorize();
 
+            $messageParams = json_decode($params['params_request']['body'], true);
+
+            if (isset($messageParams['text']) && $messageParams['text'] != '') {
+                $text = $messageParams['text'];
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.make_plain_message', array(
+                    'init' => 'googlebusinessmessage',
+                    'msg' => & $text
+                ));
+                $messageParams['text'] = $text;
+                $messageParams['fallback'] = $text;
+            }
+
             $response = $httpClient->post($params['url'], [
-                GuzzleHttp\RequestOptions::JSON => json_decode($params['params_request']['body'], true)
+                GuzzleHttp\RequestOptions::JSON => $messageParams
             ]);
 
             return [
