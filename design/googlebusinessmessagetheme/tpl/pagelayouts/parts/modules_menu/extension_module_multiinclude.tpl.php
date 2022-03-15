@@ -1,0 +1,3 @@
+<?php if (erLhcoreClassUser::instance()->hasAccessTo('lhcloudtalkio','lhgooglebusinessmessage')) : ?>
+<li class="nav-item"><a class="nav-link" href="<?php echo erLhcoreClassDesign::baseurl('googlebusinessmessage/index')?>"><i class="material-icons">business</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('cloudtalkio/admin','Google Business');?></a></li>
+<?php endif; ?>

@@ -1,0 +1,26 @@
+{
+  "tables": {
+    "lhc_google_business_agent": [
+      {
+        "field": "id",
+        "type": "bigint(20) unsigned",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "auto_increment"
+      }
+    ]
+  },
+  "tables_data": {    },
+  "tables_data_identifier": {    },
+  "tables_indexes" : {
+    "lhc_google_business_agent" : {
+      "new" : {
+      },
+      "old" : []
+    }
+  },
+  "tables_create": {
+    "lhc_google_business_agent" : "CREATE TABLE `lhc_google_business_agent` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `verify_token` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `client_token` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `dep_id` bigint(20) unsigned NOT NULL,\n  `brand_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `agent_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `client_token` (`client_token`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci\n"
+  }
+}

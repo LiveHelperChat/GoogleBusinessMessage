@@ -1,0 +1,8 @@
+{
+    "name": "GoogleBusinessMessage",
+    "dep_id": 1,
+    "disabled": 0,
+    "identifier": "googlebusinessmessage",
+    "scope": "googlebusinessmessage",
+    "configuration": "{\"attr\":[{\"key\":\"avatarImage\",\"value\":\"replace_me\",\"id\":\"temp1647251375895\",\"$$hashKey\":\"object:481\"}],\"messages\":\"message\",\"chat_id\":\"conversationId\",\"message_direct\":true,\"nick\":\"context.userInfo.displayName\",\"time\":\"createTime\",\"msg_body\":\"{{msg.text}}\",\"main_cond\":\"message\"}"
+}
