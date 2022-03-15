@@ -19,9 +19,6 @@ class erLhcoreClassGoogleBusinessValidator
             'brand_id' => new \ezcInputFormDefinitionElement(
                 \ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
-            'verify_token' => new \ezcInputFormDefinitionElement(
-                \ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-            ),
             'dep_id' => new \ezcInputFormDefinitionElement(
                 \ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
             )
@@ -52,12 +49,6 @@ class erLhcoreClassGoogleBusinessValidator
         if ( $form->hasValidData( 'brand_id' ) && $form->brand_id != '')
         {
             $item->brand_id = $form->brand_id;
-        }
-
-        if ( $form->hasValidData( 'verify_token' ) && $form->verify_token != '') {
-            $item->verify_token = $form->verify_token;
-        } else {
-            $Errors[] = \erTranslationClassLhTranslation::getInstance()->getTranslation('xmppservice/operatorvalidator','Please enter verify Token');
         }
 
         if ( $form->hasValidData( 'dep_id' ))

@@ -10,8 +10,15 @@
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('googlebusinessmessage/module','Verify token. Is set automatically on verify call. Just for information purposes.');?></label>
-    <input type="text" maxlength="50" class="form-control form-control-sm" name="verify_token" value="<?php echo htmlspecialchars($item->verify_token)?>" />
+    <input type="text" maxlength="50" readonly class="form-control form-control-sm" name="verify_token" value="<?php echo htmlspecialchars($item->verify_token)?>" />
 </div>
+
+<?php if ($incomingWebhook = erLhcoreClassModelChatIncomingWebhook::findOne(['filter' => ['name' => 'GoogleBusinessMessage']])) : ?>
+    <div class="form-group">
+        <label>Callback URL for Google Business Message</label>
+        <input readonly type="text" class="form-control form-control-sm" value="https://<?php echo $_SERVER['HTTP_HOST']?><?php echo erLhcoreClassDesign::baseurl('webhooks/incoming')?>/<?php echo htmlspecialchars($incomingWebhook->identifier)?>">
+    </div>
+<?php endif; ?>
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('googlebusinessmessage/module','Brand ID');?></label>
