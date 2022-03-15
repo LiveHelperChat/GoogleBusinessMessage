@@ -221,7 +221,6 @@ class erLhcoreClassExtensionGooglebusinessmessage
 
     private static $persistentSession;
 
-
     private $instanceManual = false;
 }
 

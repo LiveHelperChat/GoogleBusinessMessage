@@ -21,6 +21,6 @@
     }
   },
   "tables_create": {
-    "lhc_google_business_agent" : "CREATE TABLE `lhc_google_business_agent` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `verify_token` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `client_token` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `dep_id` bigint(20) unsigned NOT NULL,\n  `brand_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `agent_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `client_token` (`client_token`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci\n"
+    "lhc_google_business_agent" : "CREATE TABLE `lhc_google_business_agent` (\n  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `verify_token` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `client_token` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `dep_id` bigint(20) unsigned NOT NULL,\n  `brand_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `agent_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `client_token` (`client_token`), KEY `agent_id` (`agent_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci\n"
   }
 }
