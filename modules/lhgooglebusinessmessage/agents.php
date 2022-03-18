@@ -36,7 +36,7 @@ $Result['path'] = array(
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('googlebusinessmessage/module', 'Google Business Message')
     ),
     array(
-        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('googlebusinessmessage/module', 'Agents in Live Helper Chat')
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('googlebusinessmessage/module', 'Agents')
     )
 );
 

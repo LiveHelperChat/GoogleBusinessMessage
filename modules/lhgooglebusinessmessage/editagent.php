@@ -44,7 +44,7 @@ $Result['path'] = array(
     ),
     array (
         'url' =>erLhcoreClassDesign::baseurl('googlebusinessmessage/agents'),
-        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('googlebusinessmessage/module','Agent list')
+        'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('googlebusinessmessage/module','Agents')
     ),
     array (
         'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('googlebusinessmessage/module', 'Edit agent')
