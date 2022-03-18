@@ -15,6 +15,12 @@ $ViewList['activation'] = array (
     'functions' => array('use_admin'),
 );
 
+$ViewList['deleteagent'] = array (
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array('use_admin'),
+);
+
 $ViewList['index'] = array (
     'params' => array(),
     'uparams' => array(),
