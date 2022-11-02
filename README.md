@@ -21,6 +21,9 @@ php cron.php -s site_admin -e googlebusinessmessage -c cron/update_structure
 * Copy `settings/google_service.json.default.php` to `settings/google_service.json.php`
 * Modify file and put json file content in dedicated place in `settings/google_service.json.php` file.
 
+Truncated sample file
+![image](https://user-images.githubusercontent.com/1146085/199461664-58fcf6fb-2d63-4cfd-b7a9-486f7baa8c5e.png)
+
 ## Hierarchy
 
 * Partner
