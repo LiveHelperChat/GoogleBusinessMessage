@@ -85,6 +85,10 @@ class erLhcoreClassGoogleBusinessValidator
             if ($event = \erLhcoreClassModelChatWebhook::findOne(['filter' => ['event' => ['chat.web_add_msg_admin', 'bot_id' => $botPrevious->id]]])) {
                 $event->removeThis();
             }
+
+            if ($event = \erLhcoreClassModelChatWebhook::findOne(['filter' => ['event' => ['chat.before_auto_responder_msg_saved', 'bot_id' => $botPrevious->id]]])) {
+                $event->removeThis();
+            }
         }
     }
 
@@ -157,6 +161,16 @@ class erLhcoreClassGoogleBusinessValidator
         }
         $event = new \erLhcoreClassModelChatWebhook();
         $event->setState(json_decode(file_get_contents('extension/googlebusinessmessage/doc/chat.web_add_msg_admin.json'),true));
+        $event->bot_id = $botData['bot']->id;
+        $event->trigger_id = $trigger->id;
+        $event->saveThis();
+
+
+        if ($botPrevious && $event = \erLhcoreClassModelChatWebhook::findOne(['filter' => ['event' => ['chat.before_auto_responder_msg_saved', 'bot_id' => $botPrevious->id]]])) {
+            $event->removeThis();
+        }
+        $event = new \erLhcoreClassModelChatWebhook();
+        $event->setState(json_decode(file_get_contents('extension/googlebusinessmessage/doc/chat.before_auto_responder_msg_saved.json'),true));
         $event->bot_id = $botData['bot']->id;
         $event->trigger_id = $trigger->id;
         $event->saveThis();
