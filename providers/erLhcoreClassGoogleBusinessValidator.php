@@ -1,7 +1,7 @@
 <?php
 
 namespace LiveHelperChatExtension\googlebusinessmessage\providers;
-
+#[\AllowDynamicProperties]
 class erLhcoreClassGoogleBusinessValidator
 {
     public static function validateAgent(& $item)
@@ -164,7 +164,6 @@ class erLhcoreClassGoogleBusinessValidator
         $event->bot_id = $botData['bot']->id;
         $event->trigger_id = $trigger->id;
         $event->saveThis();
-
 
         if ($botPrevious && $event = \erLhcoreClassModelChatWebhook::findOne(['filter' => ['event' => ['chat.before_auto_responder_msg_saved', 'bot_id' => $botPrevious->id]]])) {
             $event->removeThis();
